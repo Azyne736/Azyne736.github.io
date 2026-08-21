@@ -1,0 +1,6 @@
+# FLAC 原文件太大（其中两个 >100MB，GitHub 会拒绝推送），只保留转码后的 ogg
+assets/音乐/
+assets/头像.jpg
+
+node_modules/
+package-lock.json

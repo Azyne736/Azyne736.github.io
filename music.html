@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Music · az.log</title>
+<link href="assets/avatar.jpg" rel="icon"/>
+<link href="assets/style.css" rel="stylesheet"/>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<meta content="00:61 / fragment-index:? / checksum:mismatch" name="azlog-residual"/>
+</head>
+<body>
+<div aria-hidden="true" class="sky">
+<div class="fog f1"></div><div class="fog f2"></div><div class="fog f3"></div>
+<div class="star s1"></div><div class="star s2"></div><div class="star s3"></div><div class="star s4"></div>
+</div>
+<div aria-hidden="true" class="rain"></div>
+<div aria-hidden="true" class="loadbar"><i></i></div>
+<div class="wrap">
+<header class="site-head">
+<a class="site-title" href="index.html">azlog<span class="dot">.</span>living</a>
+<p class="site-sub"><span id="typed"></span><span class="caret">▌</span></p>
+<p class="site-status"><span class="status-dot"></span>status: still here, mostly quiet</p>
+<nav class="nav"><a href="index.html"><span class="ico">☁</span>首页</a><a href="about.html"><span class="ico">📖</span>About</a><a href="now.html"><span class="ico">🌙</span>Now</a><a href="archive.html"><span class="ico">🗂</span>Archive</a><a class="on" href="music.html"><span class="ico">🎧</span>Music</a><a href="cats.html"><span class="ico">🐈</span>Cats</a><a href="memo.html"><span class="ico">✏</span>Memo</a><a href="links.html"><span class="ico">🔗</span>Links</a><a href="guestbook.html"><span class="ico">✉</span>留言板</a></nav>
+</header>
+<div class="cols">
+<main class="main"><div class="card taped reveal">
+<h2>Music</h2>
+<p>一些适合把灯关掉以后再听的歌。</p>
+<p>没有顺序，也没有理由。有些声音不是让人振作的，只是陪你把一段很长的夜晚听完。</p>
+<div id="player">
+<div class="p-coverwrap"><img alt="" class="p-cover" id="pl-cover" src="assets/music/blitz-kids-lost-generation.jpg"/></div>
+<div class="p-info"><p class="p-title" id="pl-title"></p><p class="p-artist" id="pl-artist"></p><p class="p-desc" id="pl-desc"></p>
+<div class="p-seekrow"><span class="p-time" id="pl-cur">0:00</span><input aria-label="进度" id="pl-seek" max="1000" min="0" type="range" value="0"/><span class="p-time" id="pl-dur">--:--</span></div>
+<div class="p-volrow"><span>vol</span><input aria-label="音量" id="pl-vol" max="100" min="0" type="range" value="80"/></div></div>
+<div class="p-controls"><button aria-label="上一首" id="pl-prev">⏮</button><button aria-label="播放/暂停" class="p-play" id="pl-play">▶</button><button aria-label="下一首" id="pl-next">⏭</button></div>
+</div>
+<h3>playlist</h3><ul id="pl-list"></ul>
+<p class="gb-hint" style="margin-top:10px">有时候一首歌结束以后，不马上播放下一首。那几秒空白也算音乐的一部分。</p>
+</div><div class="card reveal">
+<h2>no categories</h2>
+<p>我不太会给喜欢的东西分类。</p>
+<p>有些歌适合晴天，有些歌适合公交车最后一排，还有一些只适合没人说话的时候。</p>
+<p>真正喜欢的，大概是听完以后会在原地坐一会儿的那种。</p>
+</div></main>
+<aside class="side">
+<div class="card profile reveal">
+<img alt="Azyne 的头像" class="avatar" src="assets/avatar.jpg"/>
+<h3>Azyne</h3>
+<p class="aka">az / 白穗 · 深圳</p>
+<p class="bio">在雨、耳机和睡不着的凌晨之间，练习把自己写得很轻。</p>
+<p class="sig">“some nights feel like rooms with no clocks.”</p>
+</div>
+<div class="card reveal">
+<h4>· fragments</h4>
+<p id="quote"></p>
+<button class="btn" id="reroll">换一句</button>
+</div>
+<div class="card reveal">
+<h4>♫ now playing</h4>
+<div class="eq"><i></i><i></i><i></i><i></i><i></i></div>
+<p id="np"></p>
+</div>
+<div class="card reveal">
+<h4># fragments</h4>
+<ul class="tags"><li><a href="archive.html">#碎碎念</a></li><li><a href="archive.html">#音乐</a></li><li><a href="archive.html">#猫</a></li><li><a href="archive.html">#天空</a></li><li><a href="archive.html">#日常</a></li><li><a href="archive.html">#半夜不睡觉</a></li><li><a href="archive.html">#暑假</a></li><li><a href="archive.html">#上学好累</a></li><li><a href="archive.html">#没有营养</a></li></ul>
+</div>
+</aside>
+</div>
+<footer class="site-foot">
+<div aria-hidden="true" class="foot-paws"><span>— · — · —</span></div>
+<p class="codespan"><code>© 2025–2026 Azyne</code></p>
+<p class="codespan"><code>written somewhere between rain, static and sleepless nights.</code></p>
+<p><strong>这里没有结论。</strong> 如果某天没有新句子，也别急着替沉默命名。</p>
+</footer>
+</div>
+<div aria-hidden="true" class="floaters"></div>
+<script data-root="" src="assets/player.js"></script>
+<script src="assets/main.js"></script>
+<!-- residual 00: this comment is not a key. 03/00 was never a date. -->
+</body>
+</html>
