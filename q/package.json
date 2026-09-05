@@ -1,0 +1,9 @@
+{
+  "name": "axiom-rule-ecology",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A static single-player rule ecology puzzle game.",
+  "scripts": {
+    "test": "node tests/verify.js"
+  }
+}

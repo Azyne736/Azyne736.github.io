@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#111315" />
+  <meta name="description" content="AXIOM — a single-player rule ecology puzzle game." />
+  <title>AXIOM</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app">
+    <section id="menu" class="screen active" aria-label="Main menu">
+      <div class="menu-shell">
+        <header class="brand-block">
+          <div class="eyebrow">RULE ECOLOGY / SINGLE PLAYER</div>
+          <h1>AXIOM</h1>
+          <p class="tagline">Do not move the world. Change what the world obeys.</p>
+        </header>
+
+        <nav class="menu-actions" aria-label="Game modes">
+          <button id="continueBtn" class="menu-btn primary">
+            <span>CONTINUE</span><small id="continueMeta">LEVEL 01</small>
+          </button>
+          <button id="chaptersBtn" class="menu-btn"><span>CHAPTERS</span><small>16 HAND-BUILT WORLDS</small></button>
+          <button id="endlessBtn" class="menu-btn"><span>ENDLESS</span><small>GENERATED SOLVABLE WORLDS</small></button>
+          <button id="howBtn" class="menu-btn"><span>HOW TO PLAY</span><small>90 SECOND READ</small></button>
+        </nav>
+
+        <footer class="menu-footer">
+          <span>v1.0 · static build</span>
+          <div>
+            <button id="soundBtn" class="text-btn">SOUND: ON</button>
+            <button id="resetSaveBtn" class="text-btn danger">RESET SAVE</button>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <section id="game" class="screen" aria-label="Game">
+      <header class="game-topbar">
+        <button id="backBtn" class="icon-btn" aria-label="Back to menu">←</button>
+        <div class="level-heading">
+          <span id="chapterLabel" class="eyebrow">CHAPTER I · FORCE</span>
+          <h2 id="levelTitle">A Small Attraction</h2>
+        </div>
+        <div class="top-stats">
+          <div><span>EDIT</span><strong id="editCounter">0 / 1</strong></div>
+          <div><span>TIME</span><strong id="timeCounter">0.0</strong></div>
+        </div>
+      </header>
+
+      <main class="game-layout">
+        <section class="world-column">
+          <div class="goal-line">
+            <span class="goal-label">GOAL</span>
+            <span id="goalText">Bring both circles into the core field.</span>
+          </div>
+
+          <div id="canvasWrap" class="canvas-wrap">
+            <canvas id="worldCanvas" width="960" height="600"></canvas>
+            <div id="worldMessage" class="world-message hidden" role="status"></div>
+          </div>
+
+          <div class="sim-controls">
+            <button id="runBtn" class="control-btn primary">RUN WORLD</button>
+            <button id="pauseBtn" class="control-btn" disabled>PAUSE</button>
+            <button id="rewindBtn" class="control-btn">REWIND</button>
+            <button id="resetRulesBtn" class="control-btn">RESET RULES</button>
+          </div>
+        </section>
+
+        <aside class="rule-column">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">ACTIVE AXIOMS</span>
+              <h3>Rules</h3>
+            </div>
+            <button id="hintBtn" class="text-btn">HINT</button>
+          </div>
+          <div id="rulesList" class="rules-list"></div>
+          <div class="legend-card">
+            <div class="legend-title">WORLD KEY</div>
+            <div id="legendContent" class="legend-content"></div>
+          </div>
+        </aside>
+      </main>
+    </section>
+  </div>
+
+  <dialog id="chaptersDialog" class="modal">
+    <div class="modal-head"><div><div class="eyebrow">CAMPAIGN</div><h2>Chapters</h2></div><button class="icon-btn modal-close">×</button></div>
+    <div id="levelGrid" class="level-grid"></div>
+  </dialog>
+
+  <dialog id="howDialog" class="modal text-modal">
+    <div class="modal-head"><div><div class="eyebrow">MANUAL</div><h2>How to play</h2></div><button class="icon-btn modal-close">×</button></div>
+    <div class="manual">
+      <p><strong>You never drag the objects.</strong> The objects move because rules tell them how to behave.</p>
+      <ol>
+        <li>Read the goal and inspect the world.</li>
+        <li>Editable words in a rule are boxed. Change as few as possible.</li>
+        <li>Press <strong>RUN WORLD</strong>. The simulation is deterministic for each level.</li>
+        <li>If the result is wrong, <strong>REWIND</strong> the world and revise the rule.</li>
+      </ol>
+      <div class="manual-example">
+        <div class="rule-sentence"><span>CIRCLE</span><b>ATTRACTS</b><span>CORE</span></div>
+        <p>Every circle accelerates toward the nearest core. Replace <b>ATTRACTS</b> with <b>REPELS</b> and the same world behaves differently.</p>
+      </div>
+      <p>Later chapters add collision verbs, state selectors and meta-rules that modify other rules while the simulation is running.</p>
+    </div>
+  </dialog>
+
+  <dialog id="completeDialog" class="modal complete-modal">
+    <div class="complete-mark">✓</div>
+    <div class="eyebrow">WORLD SATISFIED</div>
+    <h2 id="completeTitle">Solved</h2>
+    <p id="completeStats"></p>
+    <div class="complete-actions">
+      <button id="nextBtn" class="control-btn primary">NEXT WORLD</button>
+      <button id="replayBtn" class="control-btn">REPLAY</button>
+      <button id="completeMenuBtn" class="control-btn">MENU</button>
+    </div>
+  </dialog>
+
+  <dialog id="confirmDialog" class="modal confirm-modal">
+    <div class="eyebrow">LOCAL DATA</div>
+    <h2>Reset all progress?</h2>
+    <p>This clears completed levels, best edit counts and endless wins from this browser.</p>
+    <div class="complete-actions">
+      <button id="confirmResetBtn" class="control-btn danger-fill">RESET</button>
+      <button id="cancelResetBtn" class="control-btn">CANCEL</button>
+    </div>
+  </dialog>
+
+  <script src="./src/levels.js"></script>
+  <script src="./src/engine.js"></script>
+  <script src="./src/game.js"></script>
+</body>
+</html>
